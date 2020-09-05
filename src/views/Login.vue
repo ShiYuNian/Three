@@ -35,6 +35,12 @@
 <script>
 // import axios from 'axios'
 export default {
+  created() {
+    // console.log(this.$route.query)
+    const { username, password } = this.$route.params
+    this.username = username
+    this.password = password
+  },
   methods: {
     async login() {
       const res = await this.$axios.post('/login', {
@@ -48,7 +54,10 @@ export default {
         this.$toast.success(message)
         // 保存token
         // 跳转到个人中心
-        this.$router.push('/user')
+        // this.$router.push('/user')
+        this.$router.push({
+          path: '/user'
+        })
       } else {
         this.$toast.fail('登录失败')
       }
@@ -81,7 +90,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .tips {
   padding: 15px;
   font-size: 16px;
