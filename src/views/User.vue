@@ -32,6 +32,9 @@
     </hm-navitem>
     <hm-navitem to="/edit"><template>设置</template>
 </hm-navitem>
+<div style="margin:15px;">
+  <van-button type="primary" block @click="logout">退出</van-button>
+</div>
   </div>
 </template>
 
@@ -63,6 +66,32 @@ export default {
       this.$router.push('/login')
       localStorage.removeItem('token')
       localStorage.removeItem('userId')
+    }
+  },
+  methods: {
+    async logout() {
+      // console.log('123')
+      // 弹框提醒
+      try {
+        await this.$dialog.confirm({
+          title: '温馨提示',
+          message: '你确定要退出本系统吗?'
+        })
+      //  .then(() => {
+      } catch {
+        return this.$toast('取消退出')
+      }
+      // on confirm
+      // console.log('确定定')
+      localStorage.removeItem('token')
+      localStorage.removeItem('userId')
+      this.$router.push('/login')
+      this.$toast.success('退出成功')
+      // .catch(() => {
+      //   // on cancel
+    //   // console.log('取消消')
+    //   this.$toast('取消退出')
+    // })
     }
   }
 }

@@ -19,6 +19,17 @@ import moment from 'moment'
 Vue.prototype.$axios = axios
 // 给axios配置默认的baseURL ,基准地址
 axios.defaults.baseURL = 'http://localhost:3000'
+
+// 添加请求拦截器
+axios.interceptors.request.use(function(config) {
+  // 在发送请求之前做些什么
+  return config
+})
+// 添加响应拦截器
+axios.interceptors.response.use(function(response) {
+  // 对响应数据做点什么
+  return response
+})
 // 定义
 Vue.filter('time', input => {
   return moment(input).format('YYYY-MM-DD')
