@@ -16,6 +16,8 @@ export default {
       if (this.to) {
         this.$router.push(this.to)
       }
+      // 触发事件
+      this.$emit('click')
     }
   },
   props: {

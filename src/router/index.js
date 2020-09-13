@@ -41,7 +41,7 @@ router.beforeEach(function(to, from, next) {
   //   next()
   // }
   const token = localStorage.getItem('token')
-  const authUrls = ['/user', './user-edit']
+  const authUrls = ['/user', '/user-edit']
   if (authUrls.includes || token) {
     next()
   } else {

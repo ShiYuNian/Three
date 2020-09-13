@@ -21,8 +21,14 @@ Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://localhost:3000'
 
 // 添加请求拦截器
+// 给axios配置拦截器
 axios.interceptors.request.use(function(config) {
-  // 在发送请求之前做些什么
+  // config指的是请求的配置信息
+  // console.log('拦截到了请求', config)
+  const token = localStorage.getItem('token')
+  if (token) {
+    config.headers.Authorization = token
+  }
   return config
 })
 // 添加响应拦截器
