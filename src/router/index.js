@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import User from '../views/User.vue'
 import UserEdit from '../views/UserEdit.vue'
+import Demo from '../views/Demo.vue'
 
 // const originalPush = VueRouter.prototype.push
 // VueRouter.prototype.push = function push(location) {
@@ -22,7 +23,8 @@ const routes = [
   { path: '/login', component: Login, name: 'login' },
   { path: '/register', component: Register, name: 'register' },
   { path: '/user', component: User, name: 'user' },
-  { path: '/user-edit', component: UserEdit, name: 'user-edit' }
+  { path: '/user-edit', component: UserEdit, name: 'user-edit' },
+  { path: './demo', component: Demo, name: 'demo' }
 ]
 
 const router = new VueRouter({
