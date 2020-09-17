@@ -7,6 +7,7 @@ import User from '../views/User.vue'
 import UserEdit from '../views/UserEdit.vue'
 import Demo from '../views/Demo.vue'
 import MyFollow from '../views/MyFollow.vue'
+import MyComment from '../views/MyComment.vue'
 
 // const originalPush = VueRouter.prototype.push
 // VueRouter.prototype.push = function push(location) {
@@ -26,7 +27,8 @@ const routes = [
   { path: '/user', component: User, name: 'user' },
   { path: '/user-edit', component: UserEdit, name: 'user-edit' },
   { path: '/demo', component: Demo, name: 'demo' },
-  { path: '/myfollow', component: MyFollow, name: 'myfollow' }
+  { path: '/myfollow', component: MyFollow, name: 'myfollow' },
+  { path: '/mycomment', component: MyComment, name: 'mycomment' }
 ]
 
 const router = new VueRouter({
@@ -45,7 +47,7 @@ router.beforeEach(function(to, from, next) {
   //   next()
   // }
   const token = localStorage.getItem('token')
-  const authUrls = ['/user', '/user-edit', '/myfollow']
+  const authUrls = ['/user', '/user-edit', '/myfollow', '/mycomment']
   if (authUrls.includes || token) {
     next()
   } else {
